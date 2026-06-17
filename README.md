@@ -18,6 +18,8 @@ This project was developed through an iterative agent-assisted workflow:
 
 ## ✨ Features
 
+![Application Screenshot](static/images/image.png)
+
 - **Port-to-Port Sea Routes** — Select origin and destination ports from a global dataset and visualize the maritime route between them using the `searoute` library.
 - **Chokepoint Detection** — Automatically identifies strategic maritime chokepoints (e.g., straits, canals) within proximity of the calculated sea route.
 - **Mine Search** — Search for mines near the destination port by commodity type (copper, iron ore, coal, lithium, etc.) within a user-configurable radius.
