@@ -1,0 +1,26 @@
+Objective:
+To map the global ports and mines data, and analyze the routes it takes to look for chokepoints
+
+Files to use:
+global-mining-dataset.xlsx for Mines
+PortWatch_chokepoints_database.csv for chokepoints
+UpdatedPub150.csv for ports
+
+Files I need:
+- One python file for the backend logic
+- HTML, JS, CSS components as needed
+- requirements.txt
+
+Web UI specifications:
+Keep the UI sharp, no curvy designs.
+Dark theme, Minimals
+
+Design/UX specifications:
+Port to port selection, commodity selection and radius range control (for commodity selected mine search) specifications should be in a left sidebar.
+The mine and chokepoint details in a right sidebar (collapsible by user).
+
+Tech Stack:
+pandas, searoute library, fastapi, uvicorn, OSRM etc...
+
+Important:
+User should be able to see the port to port sea connection and the port to mines road connection after selection.

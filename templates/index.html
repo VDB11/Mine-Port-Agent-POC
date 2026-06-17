@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Supply Chain Chokepoint Analyzer</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="/static/css/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="app">
+        <aside id="left-sidebar">
+            <div class="sidebar-header">
+                <h1>Chokepoint<br>Analyzer</h1>
+            </div>
+            
+            <div class="sidebar-section">
+                <label class="label">Origin Port</label>
+                <input type="text" id="origin-search" class="port-search" placeholder="Type to search ports..." />
+                <div class="select-wrapper">
+                    <select id="origin-port" class="port-select" size="4">
+                        <option value="">Select origin port...</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="sidebar-section">
+                <label class="label">Destination Port</label>
+                <input type="text" id="dest-search" class="port-search" placeholder="Type to search ports..." />
+                <div class="select-wrapper">
+                    <select id="dest-port" class="port-select" size="4">
+                        <option value="">Select destination port...</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="sidebar-section">
+                <label class="label">Commodity <span class="hint">(Ctrl+click to select multiple)</span></label>
+                <div class="multi-select-wrapper">
+                    <select id="commodity-select" multiple size="5">
+                        <option value="all" selected>All commodities</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="sidebar-section">
+                <label class="label">Search Radius: <span id="radius-value">1000</span> km</label>
+                <input type="range" id="radius-slider" min="50" max="3000" value="1000" step="50" />
+                <div class="range-labels">
+                    <span>50 km</span>
+                    <span>3000 km</span>
+                </div>
+            </div>
+
+            <div class="sidebar-section">
+                <button id="btn-calculate" class="btn btn-primary">Calculate Route</button>
+                <button id="btn-find-mines" class="btn btn-secondary">Find Mines</button>
+                <button id="btn-clear" class="btn btn-outline">Clear All</button>
+            </div>
+
+            <div id="route-info" class="sidebar-section route-section" style="display:none;">
+                <label class="label">Route Info</label>
+                <div id="route-content" class="info-content"></div>
+            </div>
+
+            <div id="status-message" class="status-message"></div>
+        </aside>
+
+        <div id="map-container">
+            <div id="map"></div>
+        </div>
+
+        <aside id="right-sidebar" class="collapsed">
+            <div class="right-sidebar-content">
+                <div class="sidebar-header">
+                    <div class="sidebar-header-row">
+                        <h2>Mine Details</h2>
+                        <button id="close-right" class="close-btn" title="Close panel">&times;</button>
+                    </div>
+                    <div id="mine-summary" class="mine-summary" style="display:none;">
+                        <span id="mine-count-label">Found <strong id="mine-count">0</strong> mine(s)</span>
+                    </div>
+                </div>
+
+                <div id="mine-list" class="mine-list" style="display:none;"></div>
+                <div id="mine-list-loading" class="mine-list-loading" style="display:none;">Loading more mines...</div>
+
+                <div id="mine-placeholder" class="detail-section">
+                    <div class="detail-content">
+                        <p class="placeholder">Click a mine marker to see details, or click "Find Mines" to search.</p>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <button id="hamburger-right" class="hamburger-btn" title="Show mines panel" style="display:none;">&#9776;</button>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="/static/js/app.js"></script>
+</body>
+</html>
